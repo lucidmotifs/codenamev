@@ -70,7 +70,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Australia/Syndey'
+TIME_ZONE = 'Australia/Sydney'
 
 USE_I18N = True
 
@@ -92,3 +92,5 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
+
+TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]

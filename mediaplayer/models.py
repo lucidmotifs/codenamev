@@ -54,9 +54,13 @@ class Season(models.Model):
 
 class Episode(models.Model):
 	number = models.IntegerField()
-	season = models.ForeignKey(Season)
+	title = models.CharField(max_length=50)
 	show = models.ForeignKey(Show)
+	season = models.ForeignKey(Season)	
 	rating = models.IntegerField()
+
+	def __unicode__(self):
+		return "{}: Season {:d}, Episode {:d} - {}".format(self.show.name, self.season.number, self.number, self.title)
 
 
 class Channel(models.Model):
