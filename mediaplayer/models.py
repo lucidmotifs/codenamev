@@ -69,13 +69,26 @@ class Channel(models.Model):
 	created = models.DateTimeField('Date Created')
 	modified = models.DateTimeField('Date Modified')
 
+	def __unicode__(self):
+		return self.name
+
 
 class Video(models.Model):
-	video_name = models.CharField(max_length=200)
-	video_rating = models.IntegerField(default=3)
-	video_desc = models.CharField(max_length=255)
+	title = models.CharField(max_length=200)
+	filename = models.FileField()
+	rating = models.IntegerField(default=3)
+	desc = models.CharField(max_length=255)
 	genre = models.ForeignKey(Genre)
+	creator = models.ForeignKey(Creator)
 	pub_date = models.DateTimeField('data published')
 
 	def __unicode__(self):
-		return self.video_name
+		return self.title
+
+
+class Comment(models.Model):
+	text = models.TextField()
+	votes = models.IntegerField(default=0)
+	video = models.ForeignKey(Video)
+	created = models.DateTimeField('Created')
+	modified = models.DateTimeField('Modified')

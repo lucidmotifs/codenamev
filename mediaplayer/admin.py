@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from mediaplayer.models import Show, Creator, Genre, Studio, Season, Episode, Video
+from mediaplayer.models import Show, Creator, Genre, Studio, Season, Episode, Video, Comment
 
 class SeasonInline(admin.StackedInline):
 	model = Season
@@ -19,3 +19,4 @@ admin.site.register(Studio)
 admin.site.register(Episode)
 # Below is library / meta stuff?
 admin.site.register(Video)
+admin.site.register(Comment)
