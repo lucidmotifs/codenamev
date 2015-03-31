@@ -116,4 +116,7 @@ $(document).ready(function(){
 
 <form action="{% url 'mc:comment' video.id %}" method="post">
 {% csrf_token %}
-	<textarea name=""
+	<textarea name="comment" id="comment_ta" value=""></textarea>
+	<label for="comment_ta">Add a comment</label>
+	<input type="submit" value="Comment" />
+</form>
