@@ -30,7 +30,7 @@ def comment(request, video_id):
 		c = Comment()
 		c.text = comment_text
 		c.video = video
-		c.created = datetime.datetime.now()
+		c.created = datetime.now()
 		c.modified = datetime.now()
 		c.save()
 		return HttpResponseRedirect(reverse('mc:play', args=(video.id,)))
