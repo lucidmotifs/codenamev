@@ -1,5 +1,6 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponseRedirect, HttpResponse, Http404
 from django.shortcuts import render, get_object_or_404
+from django.core.urlresolvers import reverse
 from mediaplayer.models import Video, Comment
 from datetime import datetime
 
@@ -30,7 +31,7 @@ def comment(request, video_id):
 		c = Comment()
 		c.text = comment_text
 		c.video = video
-		c.created = datetime.datetime.now()
+		c.created = datetime.now()
 		c.modified = datetime.now()
 		c.save()
 		return HttpResponseRedirect(reverse('mc:play', args=(video.id,)))
